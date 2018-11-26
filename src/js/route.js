@@ -61,7 +61,9 @@ class Router extends String {
 
                 if (defaultParameter && needDefaultParams) {
                     if (this.numericParamIndices) {
-                        tags = Object.values(tags)
+                        tags = Object.keys(tags).map(function (key) {
+                            return tags[key];
+                        })
                         tags.splice(key, 0, defaultParameter)
                     } else {
                         tags[key] = defaultParameter

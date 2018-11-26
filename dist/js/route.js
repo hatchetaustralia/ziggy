@@ -236,7 +236,9 @@ var route_Router = function (_String) {
 
                 if (defaultParameter && needDefaultParams) {
                     if (_this2.numericParamIndices) {
-                        tags = Object.values(tags);
+                        tags = Object.keys(tags).map(function (key) {
+                            return tags[key];
+                        })
                         tags.splice(key, 0, defaultParameter);
                     } else {
                         tags[key] = defaultParameter;
